@@ -1,13 +1,13 @@
-package com.andyludeveloper.coroutine_book_example.ch1.ch1
+package com.andyludeveloper.coroutine_book_example.ch1
 
 import java.util.concurrent.*
 
-class InterruptableThread : Runnable {
+class StoppableThread : Runnable {
+    var isRunning: Boolean = true
     private var i = 0
 
-
     override fun run() {
-        while (Thread.currentThread().isInterrupted) {
+        while (isRunning) {
             i++
             TimeUnit.MILLISECONDS.sleep(100)
         }
@@ -16,10 +16,10 @@ class InterruptableThread : Runnable {
 }
 
 fun main() {
-    val interruptableThread = InterruptableThread()
-    val thread = Thread(interruptableThread)
+    val stoppableThread = StoppableThread()
+    val thread = Thread(stoppableThread)
     thread.start()
     TimeUnit.SECONDS.sleep(1)
-    thread.interrupt()
+    stoppableThread.isRunning = false
     println("Done")
 }

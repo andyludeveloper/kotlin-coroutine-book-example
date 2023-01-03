@@ -1,4 +1,4 @@
-package com.andyludeveloper.coroutine_book_example.ch1.ch1
+package com.andyludeveloper.coroutine_book_example.ch1
 
 import java.util.concurrent.*
 import kotlin.concurrent.*

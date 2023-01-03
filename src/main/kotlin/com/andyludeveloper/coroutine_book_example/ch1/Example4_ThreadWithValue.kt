@@ -1,4 +1,4 @@
-package com.andyludeveloper.coroutine_book_example.ch1.ch1
+package com.andyludeveloper.coroutine_book_example.ch1
 
 class ThreadWithValue : Runnable {
     private var value = 0
